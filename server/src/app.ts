@@ -4,6 +4,7 @@ import cors from "cors";
 import { getVotes, insertVote } from "./model/voteModel";
 
 const app = express();
+const PORT = process.env.PORT || 5500;
 
 const optCors = {
 	origin: process.env.CLIENT_URL,
@@ -28,4 +29,6 @@ app.route("/api/vote")
 		res.json(votes);
 	});
 
-export default app;
+app.listen(PORT, () => {
+	console.log(`Server is running at http://localhost:${PORT}`);
+});
