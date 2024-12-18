@@ -1,12 +1,16 @@
 import { connection } from "../database/connection";
 
-// Get all votes
-export async function getVotes() {
-	const [rows] = await connection.query("SELECT * FROM vote");
+export async function getVotes(sexe: string) {
+	const [rows] = await connection.query(
+		`SELECT 
+			SUM(CASE WHEN choice = ? THEN 1 ELSE 0 END) AS nb,
+			COUNT(choice) AS total
+		FROM vote`,
+		[sexe]
+	);
 	return rows;
 }
 
-// Insert a vote
 export async function insertVote(vote: string) {
 	const [rows] = await connection.query(
 		"INSERT INTO vote (choice) VALUES (?)",

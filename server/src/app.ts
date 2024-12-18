@@ -23,7 +23,8 @@ app.route("/api/vote")
 		res.json({ message: "Vote inserted" });
 	})
 	.get(async (req: Request, res: Response) => {
-		const votes = await getVotes();
+		const { sexe } = req.query;
+		const votes = await getVotes(sexe as string);
 		res.json(votes);
 	});
 
