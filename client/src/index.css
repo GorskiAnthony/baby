@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.center_square {
+	@apply w-32 h-32 
+      bg-white 
+      border 
+      border-gray-400 
+      rounded 
+      flex 
+      items-center 
+      justify-center 
+      shadow-md
+      transition-all
+      duration-500
+      hover:scale-105;
+}
+
+.side_panel {
+	@apply flex 
+        items-center 
+        justify-center 
+        transition-all 
+        duration-700 
+        ease-in-out 
+        relative 
+        overflow-hidden;
+}
