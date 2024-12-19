@@ -4,7 +4,7 @@ import cors from "cors";
 import { getVotes, insertVote } from "./model/voteModel";
 
 const app = express();
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 3000;
 
 const optCors = {
 	origin: process.env.CLIENT_URL,
