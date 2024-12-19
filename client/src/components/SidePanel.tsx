@@ -16,7 +16,7 @@ const SidePanel = ({
 		try {
 			if (hasVoted) return;
 
-			await fetch("http://localhost:3310/api/vote", {
+			await fetch(`${import.meta.env.VITE_API_URL}/api/vote`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -34,7 +34,7 @@ const SidePanel = ({
 	const getVote = async (sexe: string) => {
 		try {
 			const response = await fetch(
-				`http://localhost:3310/api/vote?sexe=${sexe}`
+				`${import.meta.env.VITE_API_URL}/api/vote?sexe=${sexe}`
 			);
 			const data = await response.json();
 			setReceivedVote({ nb: data[0].nb, total: data[0].total });
