@@ -74,18 +74,36 @@ const SidePanel = ({
 						: text}
 				</span>
 				{isSelected && (
-					<div className="absolute bottom-0 left-0 right-0 p-2">
-						<div className="bg-white rounded-full">
-							<div
-								className="bg-purple-500 h-4 rounded-full"
-								style={{
-									width: `${
+					<div className="absolute inset-0 flex items-center justify-center top-24">
+						<p className="text-xl font-bold text-white text-center">
+							Il y a un pourcentage de{" "}
+							<span className="text-green-500">
+								{Math.round(
+									(receivedVote.nb / receivedVote.total) * 100
+								)}
+								%
+							</span>{" "}
+							de votes pour{" "}
+							<span
+								className={`${
+									text === "Fille"
+										? "text-pink-200"
+										: "text-blue-200"
+								}`}
+							>
+								{text}
+							</span>{" "}
+							contre{" "}
+							<span className="text-green-500">
+								{100 -
+									Math.round(
 										(receivedVote.nb / receivedVote.total) *
-										100
-									}%`,
-								}}
-							></div>
-						</div>
+											100
+									)}
+								%
+							</span>{" "}
+							pour l'autre sexe !
+						</p>
 					</div>
 				)}
 			</div>
